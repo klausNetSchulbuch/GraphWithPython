@@ -20,10 +20,10 @@ Um die Jupyter-Notebooks nutzen zu können, muss man die o.g. Bibliothek (networ
     1. Die Bibliothek `nrw_graph_unsave` hat keine assert-Anweisungen. Man kann dann in den Import-Anweisungen diese Bibliothek statt der sicheren Variante nutzen.
     
  1. Einige CSV-Dateien sind beigefügt, in denen Graphen zum Testen enthalten sind:
-    - AutobahnAbschnitte.txt (mit Langnamen aller Autobahnabfahrten)
-    - Highway.txt (wie oben, jedoch mit geänderter Spaltenreihenfolge)
-    - staedte.txt (ein minimaler Autobahngraph mit Langnamen einiger Städte)
-    - stdt.txt (wie oben, jedoch mit Autokennzeichen der Städte zur Vereinfachung)
+    - **AutobahnAbschnitte.txt** (mit Langnamen aller Autobahnabfahrten)
+    - **Highway.txt** (wie oben, jedoch mit geänderter Spaltenreihenfolge)
+    - **staedte.txt** (ein minimaler Autobahngraph mit Langnamen einiger Städte)
+    - **stdt.txt** (wie oben, jedoch mit Autokennzeichen der Städte zur Vereinfachung)
 
 
 
