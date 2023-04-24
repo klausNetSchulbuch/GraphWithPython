@@ -2,13 +2,24 @@
 Eine Möglichkeit, Graphenalgorithmen mit Python im Schulunterricht zu behandeln.
 
 Auf der Basis der Python-Biobliothek
-- networkx
+- `networkx`
 
-wurde eine Bibliothek entworfen, die es erlaubt, gewisse Graphenalgorithmen methodisch/didaktisch zu vermitteln.
+wurde eine Bibliothek 
+- `nrw_graph`
+entworfen, die es erlaubt, gewisse Graphenalgorithmen methodisch/didaktisch zu vermitteln.
 
 Um die Jupyter-Notebooks nutzen zu können, muss man die o.g. Bibliothek (networkx) installieren. Siehe dazu auch
 
 `https://networkx.org/documentation/stable/index.html`
+
+## Weitere Anmerkungen:
+1. Bisher sind die Graphen ungerichtet.
+1. Die Kanten und Knoten können mit beliebigen Attributen versehen werden.
+1. Die o.g. Bibliothek (nrw_graph) stellt diverse Funktionen zur Verfügung. Viele der Funktionen nutzen die Python-Möglichkeit der Zusicherung von Vorbedingungen mittels *assert*. 
+    1. Das hat zur Folge, dass die Algorithmen sehr langsam laufen. Wenn man auf diese Zusicherungen verzichtet, kann es zwar zu Laufzeitfehlern mit z.T. nicht hilfreichen fehlermeldungen kommen, doch die Laufzeit ist erheblich besser.
+    1. Die Bibliothek `nrw_graph_unsave` hat keine assert-Anweisungen.
+
+
 
 
 
