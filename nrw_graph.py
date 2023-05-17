@@ -4,13 +4,9 @@ class nrw_graph (nx.Graph):
     
     def __init__(self):
         '''
-            Es wird ein leerer Graph erzeugt
+            Es wird ein leerer ungerichteter Graph erzeugt.
             
-            Die Knoten können bereits Marken (beliebigen Typs) und boolsche Flaggen benutzen, 
-            jedoch kann man weitere beliebige Attribute hinzufügen.
-            
-            Die Kanten können bereits Marken (beliebigen Typs), Farben und Gewichte ‚benutzen, 
-            jedoch kann man weitere beliebige Attribute hinzufügen.
+            Knoten und Kanten können mit beliebigen Attributen versehen werden.
            
         '''
         super().__init__()
@@ -23,6 +19,8 @@ class nrw_graph (nx.Graph):
         '''
             ein neuer Knoten (ggf. mit weiteren Attributen) wird dem Graphen hinzugefügt.
         '''
+        if not 'besucht' in args:
+            args['besucht'] = False
         self.add_node(knoten, **args)
         
     def alleKnoten(self):
@@ -31,15 +29,23 @@ class nrw_graph (nx.Graph):
         '''
         return list(self.nodes())
     
-    def getKnotenAttribut(self, node, attr):
+    def getKnotenAttribut(self, node, attrName):
         '''
-            liefert den durch 'attr' spezifizierten 
+            liefert den durch 'attrName' spezifizierten 
             Attribut-Wert des Knotens.
         '''
         assert self.knotenExists (node) , f"Knoten {node} gibt es nicht!"
-        assert self.knotenHatAttribut(node, attr), f"Knoten {node} hat kein Attribut {attr}"
+        assert self.knotenHatAttribut(node, attrName), f"Knoten {node} hat kein Attribut {attrName}"
         
-        return self.nodes[node][attr]
+        return self.nodes[node][attrName]
+    
+    def getKnotenAttribute(self, node):
+        '''
+            liefert ein Dictionary der Attribute des Knotens.
+        '''
+        assert self.knotenExists (node) , f"Knoten {node} gibt es nicht!"
+        
+        return self.nodes[node]
         
     def setKnotenAttribut(self, node, attrName, attrWert):
         '''
@@ -54,6 +60,8 @@ class nrw_graph (nx.Graph):
 
         self.nodes[node][attrName] = attrWert
         
+# Hilfsfunktionen, nur relevant für die assert-Aufrufe
+        
     def getKnotenMitAttribut(self, attr):
         return nx.get_node_attributes(self,attr)
     
@@ -65,41 +73,43 @@ class nrw_graph (nx.Graph):
         alle = self.alleKnoten()
         return node in alle
         
-# Beispielhaft werden hier Knoten 
-# mit dem Attribut 'marke' und 
+# Beispielhaft können hier Knoten 
+# mit dem Attribut 'marke' versehen werden
+# und als besucht markiert werden.
 # einer (boolschen) Flagge versehen.
 
     def markiereKnoten(self, node, marke):
         '''
-            die Marke des angegebenen Knoten wird gesetzt.
+            Der angegebene Knoten erhält die angegebene Marke.
         '''
         self.setKnotenAttribut(node, 'marke', marke)
         
     def getKnotenMarke(self, node):
         '''
-            die Markierung des angegebenen Knoten wird geliefert.
+            Die Markierung des angegebenen Knoten wird geliefert.
         '''
         return self.getKnotenAttribut(node, 'marke')
 
-    def flagKnoten(self, node):
+    def besucheKnoten(self, node):
         '''
-            der angegebene Knoten bekommt die (boolsche) Flagge "True"
+            der angegebene Knoten wird als besucht markiert.
         '''
-        self.setKnotenAttribut(node, 'flagge', True)
+        self.setKnotenAttribut(node, 'besucht', True)
         
-    def deflagKnoten(self, node):
-        '''
-            der angegebene Knoten bekommt die (boolsche) Flagge "False"
-        '''
-        self.setKnotenAttribut(node, 'flagge', False)
         
-    def knotenHatFlag(self, node):
+    def verlasseKnoten(self, node):
+        '''
+            der angegebene Knoten wird als unbesucht markiert.
+        '''
+        self.setKnotenAttribut(node, 'besucht', False)
+        
+    def knotenIstBesucht(self, node):
         '''
             Es wird True geliefert genau dann,
-            wenn der angegebene Knoten den
-            Flaggenwert True hat.
+            wenn der angegebene Knoten 
+            als besucht markiert wurde.
         '''
-        return self.getKnotenAttribut(node, 'flagge') == True
+        return self.getKnotenAttribut(node, 'besucht')
 
 # Und einige Funktionen für Kanten: 
 
@@ -110,14 +120,27 @@ class nrw_graph (nx.Graph):
             
             Die Endknoten werden ggf. neu erzeugt.
         '''
+        self.fuegeKnotenHinzu(start)
+        self.fuegeKnotenHinzu(ziel)
+        
         self.add_edge(start, ziel, **args)
         
     def alleKanten(self):
         '''
             liefert eine Liste aller Kanten.
         '''
-        return self.edges()
+        return list(self.edges())
 
+    def getKantenAttribute(self, start, ziel):
+        '''
+            liefert ein Dictionary der Attribute der Kante.
+        '''
+        assert self.knotenExists (start) , f"Knoten {start} gibt es nicht!"
+        assert self.knotenExists (ziel) , f"Knoten {ziel} gibt es nicht!"
+        assert self.kanteExists (start, ziel), f"Kante {start} - {ziel} gibt es nicht!"
+
+        return self.edges[start, ziel]
+        
     def getKantenAttribut(self, start, ziel, attr):
         '''
             liefert den durch 'attr' spezifizierten Attribut-Wert der Kante
@@ -138,11 +161,8 @@ class nrw_graph (nx.Graph):
 
         self.edges[start, ziel][attrName] = attrWert
         
-    # Die folgenden Funktionen geben der Kante
-    # eine Farbe, ein Gewicht und eine Marke.
-    # 
-    # Falls die Kante bereits ein solches Attribut bereits besitzt, 
-    # wird der alte Wert überschrieben.
+    # Die folgenden Funktionen erlauben es, 
+    # der Kante eine Farbe und ein Gewicht zu geben.
 
     def faerbeKante(self, start, ziel, farbe):
         '''
@@ -150,13 +170,7 @@ class nrw_graph (nx.Graph):
         '''
 
         self.setKantenAttribut(start, ziel,'farbe',farbe)
-        
-    def markiereKante(self, start, ziel, marke):
-        '''
-            Die angegebene Kante wird mit der angegebenen Marke versehen.
-        '''
-        self.setKantenAttribut(start, ziel,'marke',marke)
-        
+                
     def gewichteKante(self, start, ziel, gewicht):
         '''
             Die angegebene Kante wird mit dem angegebenen Gewicht versehen.
@@ -166,26 +180,21 @@ class nrw_graph (nx.Graph):
 
     # Die eingetragenen Werte können ausgelesen werden:   
     
-    def kantenFarbe(self, start, ziel):
+    def getKantenFarbe(self, start, ziel):
         '''
             liefert die Farbe der Kante, sofern vorhanden; ansonsten "?"
         '''
 
         return self.getKantenAttribut(start, ziel, 'farbe')
 
-    def kantenGewicht(self, start, ziel):
+    def getKantenGewicht(self, start, ziel):
         '''
             liefert das Gewicht der Kante, sofern vorhanden; ansonsten "?"
         '''
 
         return self.getKantenAttribut(start, ziel, 'gewicht')
-
-    def kantenMarke(self, start, ziel):
-        '''
-            liefert die Marke der Kante, sofern vorhanden; ansonsten "?"
-        '''
-
-        return self.getKantenAttribut(start, ziel, 'marke')
+    
+# Hilfsfunktionen, nur relevant für die assert-Aufrufe
     
     def getKantenMitAttribut(self, attr):
         return nx.get_edge_attributes(self,attr)
