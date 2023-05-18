@@ -19,6 +19,8 @@ class nrw_graph (nx.Graph):
         '''
             ein neuer Knoten (ggf. mit weiteren Attributen) wird dem Graphen hinzugefügt.
         '''
+        if not 'besucht' in args:
+            args['besucht'] = False
         self.add_node(knoten, **args)
         
     def alleKnoten(self):
@@ -34,7 +36,7 @@ class nrw_graph (nx.Graph):
         '''
 #        assert self.knotenExists (node) , f"Knoten {node} gibt es nicht!"
 #        assert self.knotenHatAttribut(node, attrName), f"Knoten {node} hat kein Attribut {attrName}"
-        
+#        
         return self.nodes[node][attrName]
     
     def getKnotenAttribute(self, node):
@@ -118,6 +120,9 @@ class nrw_graph (nx.Graph):
             
             Die Endknoten werden ggf. neu erzeugt.
         '''
+        self.fuegeKnotenHinzu(start)
+        self.fuegeKnotenHinzu(ziel)
+        
         self.add_edge(start, ziel, **args)
         
     def alleKanten(self):
