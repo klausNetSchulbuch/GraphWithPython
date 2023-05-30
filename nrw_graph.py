@@ -1,4 +1,5 @@
 import networkx as nx
+import pandas as pd
 
 class nrw_graph (nx.Graph):
     
@@ -13,6 +14,25 @@ class nrw_graph (nx.Graph):
             
 #########################################
     
+## Graph aus csv-Datei einlesen:
+
+    def graphEinlesen(self, 
+                      dateiname, 
+                      sep = ",",
+                      header = 0,
+                     ):
+        df = pd.read_csv(dateiname, header = 0, names = ["Start", "Ziel", "Entfernung"])
+        
+        for i in df.index:
+            s = df["Start"][i] 
+            z = df["Ziel"][i] 
+            e = df["Entfernung"][i]
+            self.fuegeKnotenHinzu (s)
+            self.fuegeKnotenHinzu (z)
+            self.fuegeKanteHinzu (s,z)
+            self.gewichteKante (s,z,e)
+
+
 ## Zunächst einige Funktionen für Knoten:
     
     def fuegeKnotenHinzu(self, knoten, **args):
@@ -193,6 +213,11 @@ class nrw_graph (nx.Graph):
         '''
 
         return self.getKantenAttribut(start, ziel, 'gewicht')
+    
+    def alleNachbarknoten(self, start):
+        assert self.knotenExists (start) , f"Knoten {start} gibt es nicht!"
+        return [ziel for ziel in self.alleKnoten() if self.kanteExists(start, ziel)]
+
     
 # Hilfsfunktionen, nur relevant für die assert-Aufrufe
     

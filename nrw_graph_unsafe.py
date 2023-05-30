@@ -1,4 +1,5 @@
 import networkx as nx
+import pandas as pd
 
 class nrw_graph (nx.Graph):
     
@@ -13,6 +14,25 @@ class nrw_graph (nx.Graph):
             
 #########################################
     
+## Graph aus csv-Datei einlesen:
+
+    def graphEinlesen(self, 
+                      dateiname, 
+                      sep = ",",
+                      header = 0,
+                     ):
+        df = pd.read_csv(dateiname, header = 0, names = ["Start", "Ziel", "Entfernung"])
+        
+        for i in df.index:
+            s = df["Start"][i] 
+            z = df["Ziel"][i] 
+            e = df["Entfernung"][i]
+            self.fuegeKnotenHinzu (s)
+            self.fuegeKnotenHinzu (z)
+            self.fuegeKanteHinzu (s,z)
+            self.gewichteKante (s,z,e)
+
+
 ## Zunächst einige Funktionen für Knoten:
     
     def fuegeKnotenHinzu(self, knoten, **args):
@@ -34,16 +54,16 @@ class nrw_graph (nx.Graph):
             liefert den durch 'attrName' spezifizierten 
             Attribut-Wert des Knotens.
         '''
-#        assert self.knotenExists (node) , f"Knoten {node} gibt es nicht!"
-#        assert self.knotenHatAttribut(node, attrName), f"Knoten {node} hat kein Attribut {attrName}"
-#        
+ #       assert self.knotenExists (node) , f"Knoten {node} gibt es nicht!"
+ #       assert self.knotenHatAttribut(node, attrName), f"Knoten {node} hat kein Attribut {attrName}"
+        
         return self.nodes[node][attrName]
     
     def getKnotenAttribute(self, node):
         '''
             liefert ein Dictionary der Attribute des Knotens.
         '''
-#        assert self.knotenExists (node) , f"Knoten {node} gibt es nicht!"
+ #       assert self.knotenExists (node) , f"Knoten {node} gibt es nicht!"
         
         return self.nodes[node]
         
@@ -135,9 +155,9 @@ class nrw_graph (nx.Graph):
         '''
             liefert ein Dictionary der Attribute der Kante.
         '''
-#        assert self.knotenExists (start) , f"Knoten {start} gibt es nicht!"
-#        assert self.knotenExists (ziel) , f"Knoten {ziel} gibt es nicht!"
-#        assert self.kanteExists (start, ziel), f"Kante {start} - {ziel} gibt es nicht!"
+ #       assert self.knotenExists (start) , f"Knoten {start} gibt es nicht!"
+ #       assert self.knotenExists (ziel) , f"Knoten {ziel} gibt es nicht!"
+ #       assert self.kanteExists (start, ziel), f"Kante {start} - {ziel} gibt es nicht!"
 
         return self.edges[start, ziel]
         
@@ -194,6 +214,11 @@ class nrw_graph (nx.Graph):
 
         return self.getKantenAttribut(start, ziel, 'gewicht')
     
+    def alleNachbarknoten(self, start):
+#       assert self.knotenExists (start) , f"Knoten {start} gibt es nicht!"
+        return [ziel for ziel in self.alleKnoten() if self.kanteExists(start, ziel)]
+
+    
 # Hilfsfunktionen, nur relevant für die assert-Aufrufe
     
     def getKantenMitAttribut(self, attr):
@@ -206,4 +231,5 @@ class nrw_graph (nx.Graph):
     def kanteExists(self, start, ziel):
         kanten = self.alleKanten()
         return (start,ziel) in kanten or (ziel,start) in kanten
+    
     
