@@ -7,7 +7,6 @@ graphviz
 numpy
 ipywidgets
 jupyter_contrib_nbextensions
-imagaio
 scikit-image
 scikit-learn
 networkx
