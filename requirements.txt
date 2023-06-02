@@ -7,7 +7,6 @@ graphviz
 numpy
 ipywidgets
 jupyter_contrib_nbextensions
-seaborn
 imagaio
 scikit-image
 scikit-learn
