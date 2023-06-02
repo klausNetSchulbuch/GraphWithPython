@@ -1,0 +1,13 @@
+pandas
+cufflinks
+sympy
+matplotlib
+IPython
+graphviz
+numpy
+ipywidgets
+jupyter_contrib_nbextensions
+seaborn
+scikit-image
+scikit-learn
+networkx
