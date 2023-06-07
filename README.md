@@ -23,7 +23,7 @@ Um die Jupyter-Notebooks nutzen zu können, muss man die o.g. Bibliothek (networ
     - **AutobahnAbschnitte.txt** (mit Langnamen aller Autobahnabfahrten)
     - **Highway.txt** (wie oben, jedoch mit geänderter Spaltenreihenfolge)
     - **staedte.txt** (sehr(!) minimaler Autobahngraph mit Langnamen einiger Städte; nur zur Demonstration des Algorithmus sinnvoll, denn die resultierenden kürzesten Pfade sind völlig sinnfrei, da wichtige Autobahnverbindungen fehlen.)
-    - **stdt.txt** (wie oben, jedoch mit Autokennzeichen der Städte zur Vereinfachung in der Einführungsdatei `Dijkstra-Lernen.ipynb`)
+    - **stdt.txt** (wie oben, jedoch mit Autokennzeichen der Städte zur Vereinfachung der Eingaben in der Einführungsdatei `Dijkstra-Lernen.ipynb`)
 
 
 
