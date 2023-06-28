@@ -1,0 +1,13 @@
+Start,Ziel,Entfernung
+S,A,825
+A,B,299
+A,C,877
+C,D,614
+B,E,176
+B,F,444
+E,F,375
+D,G,561
+F,G,440
+E,H,145
+H,Z,516
+G,Z,442
