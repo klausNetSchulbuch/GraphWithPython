@@ -1,0 +1,715 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>simpleGraph API documentation</title>
+<meta name="description" content="" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>simpleGraph</code></h1>
+</header>
+<section id="section-intro">
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">import pandas as pd
+# import GraphBib.unsafe.attrDirGraph as adg
+import attrDirGraph as adg
+
+class simpleGraph (adg.attrDirGraph):
+    
+    def __init__(self):
+        &#39;&#39;&#39;
+            Es wird ein leerer ungerichteter Graph erzeugt.
+            
+            Knoten und Kanten können mit beliebigen 
+            Attributen versehen werden.
+           
+        &#39;&#39;&#39;
+        super().__init__()
+            
+#########################################
+    
+## Graph aus csv-Datei einlesen:
+
+    def graphEinlesen(self, 
+                      dateiname, 
+                      sep = &#34;,&#34;,
+                      header = 0,
+                     ):
+        
+        &#39;&#39;&#39;
+            alle Kanten (und damit auch alle Knoten) 
+            und die zugeh. Entfernungen werden 
+            aus einer CSV-Datei eingelesen.
+        &#39;&#39;&#39;
+        df = pd.read_csv(dateiname, header = 0, names = [&#34;Start&#34;, &#34;Ziel&#34;, &#34;Entfernung&#34;])
+        
+        for i in df.index:
+            s = df[&#34;Start&#34;][i] 
+            z = df[&#34;Ziel&#34;][i] 
+            e = df[&#34;Entfernung&#34;][i]
+            self.fuegeKnotenHinzu (s)
+            self.fuegeKnotenHinzu (z)
+            self.fuegeKanteHinzu (s,z)
+            self.gewichteKante (s,z,e)
+    
+# Beispielhaft können hier Knoten 
+# mit dem Attribut &#39;marke&#39; versehen werden
+# und als besucht markiert werden.
+# Ein Knoten kann auch mit einer (boolschen) 
+# Flagge versehen werden (als besucht markiert).
+
+    def markiereKnoten(self, node, marke):
+        &#39;&#39;&#39;
+            Der angegebene Knoten erhält die angegebene Marke.
+        &#39;&#39;&#39;
+        self.setKnotenAttribut(node, &#39;marke&#39;, marke)
+        
+    def getKnotenMarke(self, node):
+        &#39;&#39;&#39;
+            Die Markierung des angegebenen Knoten wird geliefert.
+        &#39;&#39;&#39;
+        return self.getKnotenAttribut(node, &#39;marke&#39;)
+
+    def besucheKnoten(self, node):
+        &#39;&#39;&#39;
+            der angegebene Knoten wird als besucht markiert.
+        &#39;&#39;&#39;
+        self.setKnotenAttribut(node, &#39;besucht&#39;, True)
+        
+        
+    def verlasseKnoten(self, node):
+        &#39;&#39;&#39;
+            der angegebene Knoten wird als unbesucht markiert.
+        &#39;&#39;&#39;
+        self.setKnotenAttribut(node, &#39;besucht&#39;, False)
+        
+    def knotenIstBesucht(self, node):
+        &#39;&#39;&#39;
+            Es wird True geliefert genau dann,
+            wenn der angegebene Knoten 
+            als besucht markiert wurde.
+        &#39;&#39;&#39;
+        return self.getKnotenAttribut(node, &#39;besucht&#39;)
+   
+    # Die folgenden Funktionen erlauben es, 
+    # der Kante eine Farbe und ein Gewicht zu geben.
+
+    def faerbeKante(self, start, ziel, farbe):
+        &#39;&#39;&#39;
+            Die angegebene Kante wird mit der 
+            angegebenen Farbe gefärbt.
+        &#39;&#39;&#39;
+
+        self.setKantenAttribut(start, ziel,&#39;farbe&#39;,farbe)
+                
+    def gewichteKante(self, start, ziel, gewicht):
+        &#39;&#39;&#39;
+            Die angegebene Kante wird mit dem 
+            angegebenen Gewicht versehen.
+        &#39;&#39;&#39;
+
+        self.setKantenAttribut(start, ziel,&#39;gewicht&#39;,gewicht)
+
+    # Die eingetragenen Werte können ausgelesen werden:   
+    
+    def getKantenFarbe(self, start, ziel):
+        &#39;&#39;&#39;
+            liefert die Farbe der Kante, sofern vorhanden; 
+            ansonsten &#34;?&#34;
+        &#39;&#39;&#39;
+
+        return self.getKantenAttribut(start, ziel, &#39;farbe&#39;)
+
+    def getKantenGewicht(self, start, ziel):
+        &#39;&#39;&#39;
+            liefert das Gewicht der Kante, sofern vorhanden; 
+            ansonsten &#34;?&#34;
+        &#39;&#39;&#39;
+
+        return self.getKantenAttribut(start, ziel, &#39;gewicht&#39;)  
+    </code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="simpleGraph.simpleGraph"><code class="flex name class">
+<span>class <span class="ident">simpleGraph</span></span>
+</code></dt>
+<dd>
+<div class="desc"><p>Base class for undirected graphs.</p>
+<p>A Graph stores nodes and edges with optional data, or attributes.</p>
+<p>Graphs hold undirected edges.
+Self loops are allowed but multiple
+(parallel) edges are not.</p>
+<p>Nodes can be arbitrary (hashable) Python objects with optional
+key/value attributes, except that <code>None</code> is not allowed as a node.</p>
+<p>Edges are represented as links between nodes with optional
+key/value attributes.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>incoming_graph_data</code></strong> :&ensp;<code>input graph (optional</code>, default<code>: None)</code></dt>
+<dd>Data to initialize graph. If None (default) an empty
+graph is created.
+The data can be any format that is supported
+by the to_networkx_graph() function, currently including edge list,
+dict of dicts, dict of lists, NetworkX graph, 2D NumPy array, SciPy
+sparse matrix, or PyGraphviz graph.</dd>
+<dt><strong><code>attr</code></strong> :&ensp;<code>keyword arguments</code>, optional <code>(default= no attributes)</code></dt>
+<dd>Attributes to add to graph as key=value pairs.</dd>
+</dl>
+<h2 id="see-also">See Also</h2>
+<p><code>DiGraph</code>
+<code>MultiGraph</code>
+<code>MultiDiGraph</code></p>
+<h2 id="examples">Examples</h2>
+<p>Create an empty graph structure (a "null graph") with no nodes and
+no edges.</p>
+<pre><code class="language-python-repl">&gt;&gt;&gt; G = nx.Graph()
+</code></pre>
+<p>G can be grown in several ways.</p>
+<p><strong>Nodes:</strong></p>
+<p>Add one node at a time:</p>
+<pre><code class="language-python-repl">&gt;&gt;&gt; G.add_node(1)
+</code></pre>
+<p>Add the nodes from any container (a list, dict, set or
+even the lines from a file or the nodes from another graph).</p>
+<pre><code class="language-python-repl">&gt;&gt;&gt; G.add_nodes_from([2, 3])
+&gt;&gt;&gt; G.add_nodes_from(range(100, 110))
+&gt;&gt;&gt; H = nx.path_graph(10)
+&gt;&gt;&gt; G.add_nodes_from(H)
+</code></pre>
+<p>In addition to strings and integers any hashable Python object
+(except None) can represent a node, e.g. a customized node object,
+or even another Graph.</p>
+<pre><code class="language-python-repl">&gt;&gt;&gt; G.add_node(H)
+</code></pre>
+<p><strong>Edges:</strong></p>
+<p>G can also be grown by adding edges.</p>
+<p>Add one edge,</p>
+<pre><code class="language-python-repl">&gt;&gt;&gt; G.add_edge(1, 2)
+</code></pre>
+<p>a list of edges,</p>
+<pre><code class="language-python-repl">&gt;&gt;&gt; G.add_edges_from([(1, 2), (1, 3)])
+</code></pre>
+<p>or a collection of edges,</p>
+<pre><code class="language-python-repl">&gt;&gt;&gt; G.add_edges_from(H.edges)
+</code></pre>
+<p>If some edges connect nodes not yet in the graph, the nodes
+are added automatically.
+There are no errors when adding
+nodes or edges that already exist.</p>
+<p><strong>Attributes:</strong></p>
+<p>Each graph, node, and edge can hold key/value attribute pairs
+in an associated attribute dictionary (the keys must be hashable).
+By default these are empty, but can be added or changed using
+add_edge, add_node or direct manipulation of the attribute
+dictionaries named graph, node and edge respectively.</p>
+<pre><code class="language-python-repl">&gt;&gt;&gt; G = nx.Graph(day=&quot;Friday&quot;)
+&gt;&gt;&gt; G.graph
+{'day': 'Friday'}
+</code></pre>
+<p>Add node attributes using add_node(), add_nodes_from() or G.nodes</p>
+<pre><code class="language-python-repl">&gt;&gt;&gt; G.add_node(1, time=&quot;5pm&quot;)
+&gt;&gt;&gt; G.add_nodes_from([3], time=&quot;2pm&quot;)
+&gt;&gt;&gt; G.nodes[1]
+{'time': '5pm'}
+&gt;&gt;&gt; G.nodes[1][&quot;room&quot;] = 714  # node must exist already to use G.nodes
+&gt;&gt;&gt; del G.nodes[1][&quot;room&quot;]  # remove attribute
+&gt;&gt;&gt; list(G.nodes(data=True))
+[(1, {'time': '5pm'}), (3, {'time': '2pm'})]
+</code></pre>
+<p>Add edge attributes using add_edge(), add_edges_from(), subscript
+notation, or G.edges.</p>
+<pre><code class="language-python-repl">&gt;&gt;&gt; G.add_edge(1, 2, weight=4.7)
+&gt;&gt;&gt; G.add_edges_from([(3, 4), (4, 5)], color=&quot;red&quot;)
+&gt;&gt;&gt; G.add_edges_from([(1, 2, {&quot;color&quot;: &quot;blue&quot;}), (2, 3, {&quot;weight&quot;: 8})])
+&gt;&gt;&gt; G[1][2][&quot;weight&quot;] = 4.7
+&gt;&gt;&gt; G.edges[1, 2][&quot;weight&quot;] = 4
+</code></pre>
+<p>Warning: we protect the graph data structure by making <code>G.edges</code> a
+read-only dict-like structure. However, you can assign to attributes
+in e.g. <code>G.edges[1, 2]</code>. Thus, use 2 sets of brackets to add/change
+data attributes: <code>G.edges[1, 2]['weight'] = 4</code>
+(For multigraphs: <code>MG.edges[u, v, key][name] = value</code>).</p>
+<p><strong>Shortcuts:</strong></p>
+<p>Many common graph features allow python syntax to speed reporting.</p>
+<pre><code class="language-python-repl">&gt;&gt;&gt; 1 in G  # check if node in graph
+True
+&gt;&gt;&gt; [n for n in G if n &lt; 3]  # iterate through nodes
+[1, 2]
+&gt;&gt;&gt; len(G)  # number of nodes in graph
+5
+</code></pre>
+<p>Often the best way to traverse all edges of a graph is via the neighbors.
+The neighbors are reported as an adjacency-dict <code>G.adj</code> or <code>G.adjacency()</code></p>
+<pre><code class="language-python-repl">&gt;&gt;&gt; for n, nbrsdict in G.adjacency():
+...     for nbr, eattr in nbrsdict.items():
+...         if &quot;weight&quot; in eattr:
+...             # Do something useful with the edges
+...             pass
+</code></pre>
+<p>But the edges() method is often more convenient:</p>
+<pre><code class="language-python-repl">&gt;&gt;&gt; for u, v, weight in G.edges.data(&quot;weight&quot;):
+...     if weight is not None:
+...         # Do something useful with the edges
+...         pass
+</code></pre>
+<p><strong>Reporting:</strong></p>
+<p>Simple graph information is obtained using object-attributes and methods.
+Reporting typically provides views instead of containers to reduce memory
+usage. The views update as the graph is updated similarly to dict-views.
+The objects <code>nodes</code>, <code>edges</code> and <code>adj</code> provide access to data attributes
+via lookup (e.g. <code>nodes[n]</code>, <code>edges[u, v]</code>, <code>adj[u][v]</code>) and iteration
+(e.g. <code>nodes.items()</code>, <code>nodes.data('color')</code>,
+<code>nodes.data('color', default='blue')</code> and similarly for <code>edges</code>)
+Views exist for <code>nodes</code>, <code>edges</code>, <code>neighbors()</code>/<code>adj</code> and <code>degree</code>.</p>
+<p>For details on these and other miscellaneous methods, see below.</p>
+<p><strong>Subclasses (Advanced):</strong></p>
+<p>The Graph class uses a dict-of-dict-of-dict data structure.
+The outer dict (node_dict) holds adjacency information keyed by node.
+The next dict (adjlist_dict) represents the adjacency information and holds
+edge data keyed by neighbor.
+The inner dict (edge_attr_dict) represents
+the edge data and holds edge attribute values keyed by attribute names.</p>
+<p>Each of these three dicts can be replaced in a subclass by a user defined
+dict-like object. In general, the dict-like features should be
+maintained but extra features can be added. To replace one of the
+dicts create a new graph class by changing the class(!) variable
+holding the factory for that dict-like structure.</p>
+<p>node_dict_factory : function, (default: dict)
+Factory function to be used to create the dict containing node
+attributes, keyed by node id.
+It should require no arguments and return a dict-like object</p>
+<p>node_attr_dict_factory: function, (default: dict)
+Factory function to be used to create the node attribute
+dict which holds attribute values keyed by attribute name.
+It should require no arguments and return a dict-like object</p>
+<p>adjlist_outer_dict_factory : function, (default: dict)
+Factory function to be used to create the outer-most dict
+in the data structure that holds adjacency info keyed by node.
+It should require no arguments and return a dict-like object.</p>
+<p>adjlist_inner_dict_factory : function, (default: dict)
+Factory function to be used to create the adjacency list
+dict which holds edge data keyed by neighbor.
+It should require no arguments and return a dict-like object</p>
+<p>edge_attr_dict_factory : function, (default: dict)
+Factory function to be used to create the edge attribute
+dict which holds attribute values keyed by attribute name.
+It should require no arguments and return a dict-like object.</p>
+<p>graph_attr_dict_factory : function, (default: dict)
+Factory function to be used to create the graph attribute
+dict which holds attribute values keyed by attribute name.
+It should require no arguments and return a dict-like object.</p>
+<p>Typically, if your extension doesn't impact the data structure all
+methods will inherit without issue except: <code>to_directed/to_undirected</code>.
+By default these methods create a DiGraph/Graph class and you probably
+want them to create your extension of a DiGraph/Graph. To facilitate
+this we define two class variables that you can set in your subclass.</p>
+<p>to_directed_class : callable, (default: DiGraph or MultiDiGraph)
+Class to create a new graph structure in the <code>to_directed</code> method.
+If <code>None</code>, a NetworkX class (DiGraph or MultiDiGraph) is used.</p>
+<p>to_undirected_class : callable, (default: Graph or MultiGraph)
+Class to create a new graph structure in the <code>to_undirected</code> method.
+If <code>None</code>, a NetworkX class (Graph or MultiGraph) is used.</p>
+<p><strong>Subclassing Example</strong></p>
+<p>Create a low memory graph class that effectively disallows edge
+attributes by using a single attribute dict for all edges.
+This reduces the memory used, but you lose edge attributes.</p>
+<pre><code class="language-python-repl">&gt;&gt;&gt; class ThinGraph(nx.Graph):
+...     all_edge_dict = {&quot;weight&quot;: 1}
+...
+...     def single_edge_dict(self):
+...         return self.all_edge_dict
+...
+...     edge_attr_dict_factory = single_edge_dict
+&gt;&gt;&gt; G = ThinGraph()
+&gt;&gt;&gt; G.add_edge(2, 1)
+&gt;&gt;&gt; G[2][1]
+{'weight': 1}
+&gt;&gt;&gt; G.add_edge(2, 2)
+&gt;&gt;&gt; G[2][1] is G[2][2]
+True
+</code></pre>
+<p>Es wird ein leerer ungerichteter Graph erzeugt.</p>
+<p>Knoten und Kanten können mit beliebigen
+Attributen versehen werden.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class simpleGraph (adg.attrDirGraph):
+    
+    def __init__(self):
+        &#39;&#39;&#39;
+            Es wird ein leerer ungerichteter Graph erzeugt.
+            
+            Knoten und Kanten können mit beliebigen 
+            Attributen versehen werden.
+           
+        &#39;&#39;&#39;
+        super().__init__()
+            
+#########################################
+    
+## Graph aus csv-Datei einlesen:
+
+    def graphEinlesen(self, 
+                      dateiname, 
+                      sep = &#34;,&#34;,
+                      header = 0,
+                     ):
+        
+        &#39;&#39;&#39;
+            alle Kanten (und damit auch alle Knoten) 
+            und die zugeh. Entfernungen werden 
+            aus einer CSV-Datei eingelesen.
+        &#39;&#39;&#39;
+        df = pd.read_csv(dateiname, header = 0, names = [&#34;Start&#34;, &#34;Ziel&#34;, &#34;Entfernung&#34;])
+        
+        for i in df.index:
+            s = df[&#34;Start&#34;][i] 
+            z = df[&#34;Ziel&#34;][i] 
+            e = df[&#34;Entfernung&#34;][i]
+            self.fuegeKnotenHinzu (s)
+            self.fuegeKnotenHinzu (z)
+            self.fuegeKanteHinzu (s,z)
+            self.gewichteKante (s,z,e)
+    
+# Beispielhaft können hier Knoten 
+# mit dem Attribut &#39;marke&#39; versehen werden
+# und als besucht markiert werden.
+# Ein Knoten kann auch mit einer (boolschen) 
+# Flagge versehen werden (als besucht markiert).
+
+    def markiereKnoten(self, node, marke):
+        &#39;&#39;&#39;
+            Der angegebene Knoten erhält die angegebene Marke.
+        &#39;&#39;&#39;
+        self.setKnotenAttribut(node, &#39;marke&#39;, marke)
+        
+    def getKnotenMarke(self, node):
+        &#39;&#39;&#39;
+            Die Markierung des angegebenen Knoten wird geliefert.
+        &#39;&#39;&#39;
+        return self.getKnotenAttribut(node, &#39;marke&#39;)
+
+    def besucheKnoten(self, node):
+        &#39;&#39;&#39;
+            der angegebene Knoten wird als besucht markiert.
+        &#39;&#39;&#39;
+        self.setKnotenAttribut(node, &#39;besucht&#39;, True)
+        
+        
+    def verlasseKnoten(self, node):
+        &#39;&#39;&#39;
+            der angegebene Knoten wird als unbesucht markiert.
+        &#39;&#39;&#39;
+        self.setKnotenAttribut(node, &#39;besucht&#39;, False)
+        
+    def knotenIstBesucht(self, node):
+        &#39;&#39;&#39;
+            Es wird True geliefert genau dann,
+            wenn der angegebene Knoten 
+            als besucht markiert wurde.
+        &#39;&#39;&#39;
+        return self.getKnotenAttribut(node, &#39;besucht&#39;)
+   
+    # Die folgenden Funktionen erlauben es, 
+    # der Kante eine Farbe und ein Gewicht zu geben.
+
+    def faerbeKante(self, start, ziel, farbe):
+        &#39;&#39;&#39;
+            Die angegebene Kante wird mit der 
+            angegebenen Farbe gefärbt.
+        &#39;&#39;&#39;
+
+        self.setKantenAttribut(start, ziel,&#39;farbe&#39;,farbe)
+                
+    def gewichteKante(self, start, ziel, gewicht):
+        &#39;&#39;&#39;
+            Die angegebene Kante wird mit dem 
+            angegebenen Gewicht versehen.
+        &#39;&#39;&#39;
+
+        self.setKantenAttribut(start, ziel,&#39;gewicht&#39;,gewicht)
+
+    # Die eingetragenen Werte können ausgelesen werden:   
+    
+    def getKantenFarbe(self, start, ziel):
+        &#39;&#39;&#39;
+            liefert die Farbe der Kante, sofern vorhanden; 
+            ansonsten &#34;?&#34;
+        &#39;&#39;&#39;
+
+        return self.getKantenAttribut(start, ziel, &#39;farbe&#39;)
+
+    def getKantenGewicht(self, start, ziel):
+        &#39;&#39;&#39;
+            liefert das Gewicht der Kante, sofern vorhanden; 
+            ansonsten &#34;?&#34;
+        &#39;&#39;&#39;
+
+        return self.getKantenAttribut(start, ziel, &#39;gewicht&#39;)  </code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>attrDirGraph.attrDirGraph</li>
+<li>networkx.classes.graph.Graph</li>
+</ul>
+<h3>Methods</h3>
+<dl>
+<dt id="simpleGraph.simpleGraph.besucheKnoten"><code class="name flex">
+<span>def <span class="ident">besucheKnoten</span></span>(<span>self, node)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>der angegebene Knoten wird als besucht markiert.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def besucheKnoten(self, node):
+    &#39;&#39;&#39;
+        der angegebene Knoten wird als besucht markiert.
+    &#39;&#39;&#39;
+    self.setKnotenAttribut(node, &#39;besucht&#39;, True)</code></pre>
+</details>
+</dd>
+<dt id="simpleGraph.simpleGraph.faerbeKante"><code class="name flex">
+<span>def <span class="ident">faerbeKante</span></span>(<span>self, start, ziel, farbe)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Die angegebene Kante wird mit der
+angegebenen Farbe gefärbt.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def faerbeKante(self, start, ziel, farbe):
+    &#39;&#39;&#39;
+        Die angegebene Kante wird mit der 
+        angegebenen Farbe gefärbt.
+    &#39;&#39;&#39;
+
+    self.setKantenAttribut(start, ziel,&#39;farbe&#39;,farbe)</code></pre>
+</details>
+</dd>
+<dt id="simpleGraph.simpleGraph.getKantenFarbe"><code class="name flex">
+<span>def <span class="ident">getKantenFarbe</span></span>(<span>self, start, ziel)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>liefert die Farbe der Kante, sofern vorhanden;
+ansonsten "?"</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getKantenFarbe(self, start, ziel):
+    &#39;&#39;&#39;
+        liefert die Farbe der Kante, sofern vorhanden; 
+        ansonsten &#34;?&#34;
+    &#39;&#39;&#39;
+
+    return self.getKantenAttribut(start, ziel, &#39;farbe&#39;)</code></pre>
+</details>
+</dd>
+<dt id="simpleGraph.simpleGraph.getKantenGewicht"><code class="name flex">
+<span>def <span class="ident">getKantenGewicht</span></span>(<span>self, start, ziel)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>liefert das Gewicht der Kante, sofern vorhanden;
+ansonsten "?"</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getKantenGewicht(self, start, ziel):
+    &#39;&#39;&#39;
+        liefert das Gewicht der Kante, sofern vorhanden; 
+        ansonsten &#34;?&#34;
+    &#39;&#39;&#39;
+
+    return self.getKantenAttribut(start, ziel, &#39;gewicht&#39;)  </code></pre>
+</details>
+</dd>
+<dt id="simpleGraph.simpleGraph.getKnotenMarke"><code class="name flex">
+<span>def <span class="ident">getKnotenMarke</span></span>(<span>self, node)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Die Markierung des angegebenen Knoten wird geliefert.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getKnotenMarke(self, node):
+    &#39;&#39;&#39;
+        Die Markierung des angegebenen Knoten wird geliefert.
+    &#39;&#39;&#39;
+    return self.getKnotenAttribut(node, &#39;marke&#39;)</code></pre>
+</details>
+</dd>
+<dt id="simpleGraph.simpleGraph.gewichteKante"><code class="name flex">
+<span>def <span class="ident">gewichteKante</span></span>(<span>self, start, ziel, gewicht)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Die angegebene Kante wird mit dem
+angegebenen Gewicht versehen.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def gewichteKante(self, start, ziel, gewicht):
+    &#39;&#39;&#39;
+        Die angegebene Kante wird mit dem 
+        angegebenen Gewicht versehen.
+    &#39;&#39;&#39;
+
+    self.setKantenAttribut(start, ziel,&#39;gewicht&#39;,gewicht)</code></pre>
+</details>
+</dd>
+<dt id="simpleGraph.simpleGraph.graphEinlesen"><code class="name flex">
+<span>def <span class="ident">graphEinlesen</span></span>(<span>self, dateiname, sep=',', header=0)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>alle Kanten (und damit auch alle Knoten)
+und die zugeh. Entfernungen werden
+aus einer CSV-Datei eingelesen.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def graphEinlesen(self, 
+                  dateiname, 
+                  sep = &#34;,&#34;,
+                  header = 0,
+                 ):
+    
+    &#39;&#39;&#39;
+        alle Kanten (und damit auch alle Knoten) 
+        und die zugeh. Entfernungen werden 
+        aus einer CSV-Datei eingelesen.
+    &#39;&#39;&#39;
+    df = pd.read_csv(dateiname, header = 0, names = [&#34;Start&#34;, &#34;Ziel&#34;, &#34;Entfernung&#34;])
+    
+    for i in df.index:
+        s = df[&#34;Start&#34;][i] 
+        z = df[&#34;Ziel&#34;][i] 
+        e = df[&#34;Entfernung&#34;][i]
+        self.fuegeKnotenHinzu (s)
+        self.fuegeKnotenHinzu (z)
+        self.fuegeKanteHinzu (s,z)
+        self.gewichteKante (s,z,e)</code></pre>
+</details>
+</dd>
+<dt id="simpleGraph.simpleGraph.knotenIstBesucht"><code class="name flex">
+<span>def <span class="ident">knotenIstBesucht</span></span>(<span>self, node)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Es wird True geliefert genau dann,
+wenn der angegebene Knoten
+als besucht markiert wurde.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def knotenIstBesucht(self, node):
+    &#39;&#39;&#39;
+        Es wird True geliefert genau dann,
+        wenn der angegebene Knoten 
+        als besucht markiert wurde.
+    &#39;&#39;&#39;
+    return self.getKnotenAttribut(node, &#39;besucht&#39;)</code></pre>
+</details>
+</dd>
+<dt id="simpleGraph.simpleGraph.markiereKnoten"><code class="name flex">
+<span>def <span class="ident">markiereKnoten</span></span>(<span>self, node, marke)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Der angegebene Knoten erhält die angegebene Marke.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def markiereKnoten(self, node, marke):
+    &#39;&#39;&#39;
+        Der angegebene Knoten erhält die angegebene Marke.
+    &#39;&#39;&#39;
+    self.setKnotenAttribut(node, &#39;marke&#39;, marke)</code></pre>
+</details>
+</dd>
+<dt id="simpleGraph.simpleGraph.verlasseKnoten"><code class="name flex">
+<span>def <span class="ident">verlasseKnoten</span></span>(<span>self, node)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>der angegebene Knoten wird als unbesucht markiert.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def verlasseKnoten(self, node):
+    &#39;&#39;&#39;
+        der angegebene Knoten wird als unbesucht markiert.
+    &#39;&#39;&#39;
+    self.setKnotenAttribut(node, &#39;besucht&#39;, False)</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="simpleGraph.simpleGraph" href="#simpleGraph.simpleGraph">simpleGraph</a></code></h4>
+<ul class="two-column">
+<li><code><a title="simpleGraph.simpleGraph.besucheKnoten" href="#simpleGraph.simpleGraph.besucheKnoten">besucheKnoten</a></code></li>
+<li><code><a title="simpleGraph.simpleGraph.faerbeKante" href="#simpleGraph.simpleGraph.faerbeKante">faerbeKante</a></code></li>
+<li><code><a title="simpleGraph.simpleGraph.getKantenFarbe" href="#simpleGraph.simpleGraph.getKantenFarbe">getKantenFarbe</a></code></li>
+<li><code><a title="simpleGraph.simpleGraph.getKantenGewicht" href="#simpleGraph.simpleGraph.getKantenGewicht">getKantenGewicht</a></code></li>
+<li><code><a title="simpleGraph.simpleGraph.getKnotenMarke" href="#simpleGraph.simpleGraph.getKnotenMarke">getKnotenMarke</a></code></li>
+<li><code><a title="simpleGraph.simpleGraph.gewichteKante" href="#simpleGraph.simpleGraph.gewichteKante">gewichteKante</a></code></li>
+<li><code><a title="simpleGraph.simpleGraph.graphEinlesen" href="#simpleGraph.simpleGraph.graphEinlesen">graphEinlesen</a></code></li>
+<li><code><a title="simpleGraph.simpleGraph.knotenIstBesucht" href="#simpleGraph.simpleGraph.knotenIstBesucht">knotenIstBesucht</a></code></li>
+<li><code><a title="simpleGraph.simpleGraph.markiereKnoten" href="#simpleGraph.simpleGraph.markiereKnoten">markiereKnoten</a></code></li>
+<li><code><a title="simpleGraph.simpleGraph.verlasseKnoten" href="#simpleGraph.simpleGraph.verlasseKnoten">verlasseKnoten</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>
